@@ -14,14 +14,10 @@ def generate_launch_description():
     pkg_path = get_package_share_directory("rmitbot_description")
     
     # Path to the urdf file
-    urdf_path = os.path.join(pkg_path, 
-                             'urdf', 
-                             'rmitbot.urdf.xacro')
+    urdf_path = os.path.join(pkg_path, 'urdf', 'rmitbot.urdf.xacro')
     
     # Path to the rviz config file
-    rviz_path = os.path.join(pkg_path, 
-                             'rviz', 
-                             'display.rviz')
+    rviz_path = os.path.join(pkg_path, 'rviz', 'display.rviz')
     
     # Compile the xacro to urdf
     robot_description = ParameterValue(Command(['xacro ', urdf_path]), value_type=str)

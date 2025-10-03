@@ -18,9 +18,7 @@ def generate_launch_description():
     pkg_path = get_package_share_directory("rmitbot_description")
     
     # Path to the urdf file
-    urdf_path = os.path.join(pkg_path, 
-                             'urdf', 
-                             'rmitbot.urdf.xacro')
+    urdf_path = os.path.join(pkg_path, 'urdf', 'rmitbot.urdf.xacro')
     
     # Resource path for gazebo. Required while using stl (robot CAD), and sdf (world)
     gz_resource_path = SetEnvironmentVariable(
