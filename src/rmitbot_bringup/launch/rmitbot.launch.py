@@ -8,20 +8,17 @@ from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     
+    # Path to the package description
+    pkg_path_description = get_package_share_directory("rmitbot_description")
+    
+    # Launch display.lauch.py
     display = IncludeLaunchDescription(
-        os.path.join(
-            get_package_share_directory("rmitbot_description"),
-            "launch",
-            "display.launch.py"
-        ),
+        os.path.join(pkg_path_description, "launch","display.launch.py"),
     )
     
+    # Launch gazebo.lauch.py
     gazebo = IncludeLaunchDescription(
-        os.path.join(
-            get_package_share_directory("rmitbot_description"),
-            "launch",
-            "gazebo.launch.py"
-        ),
+        os.path.join(pkg_path_description, "launch", "gazebo.launch.py"),
     )
     
     return LaunchDescription([

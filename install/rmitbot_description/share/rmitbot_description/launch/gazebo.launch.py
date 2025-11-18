@@ -15,24 +15,22 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     # Path to the package
-    pkg_path = get_package_share_directory("rmitbot_description")
+    pkg_path_description = get_package_share_directory("rmitbot_description")
     
-    # Path to the urdf file
-    urdf_path = os.path.join(pkg_path, 
-                             'urdf', 
-                             'rmitbot.urdf.xacro')
+    # # Path to the urdf file
+    # urdf_path = os.path.join(pkg_path_description, 'urdf', 'rmitbot.urdf.xacro')
     
     # Resource path for gazebo. Required while using stl (robot CAD), and sdf (world)
     gz_resource_path = SetEnvironmentVariable(
         name="GZ_SIM_RESOURCE_PATH",
-        value=[str(Path(pkg_path).parent.resolve())]
+        value=[str(Path(pkg_path_description).parent.resolve())]
     )
 
-    # Compile the xacro to urdf
-    robot_description = ParameterValue(Command(['xacro ', urdf_path]), value_type=str)
+    # # Compile the xacro to urdf
+    # robot_description = ParameterValue(Command(['xacro ', urdf_path]), value_type=str)
 
     # Launch Gazebo 
-    gazebo = IncludeLaunchDescription(
+    gz_sim = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [os.path.join(get_package_share_directory("ros_gz_sim"), "launch"), "/gz_sim.launch.py"]),
         launch_arguments=[("gz_args", [" -v 4", " -r", " empty.sdf", " --render-engine", " ogre"])]
@@ -55,7 +53,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         gz_resource_path,
-        gazebo,
+        gz_sim,
         gz_spawn_entity,
         gz_ros2_bridge,
     ])
