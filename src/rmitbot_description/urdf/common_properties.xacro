@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot name="rmitbot" xmlns:xacro="http://www.ros.org/wiki/xacro" xmlns:gz="http://gazebosim.org/schema">
+
+  <!-- Common properties: material -->
+  <material name="orange">
+    <color rgba="0.8 0.4 0.0 1.0" />
+  </material>
+
+  <material name="black">
+    <color rgba="0.5 0.5 0.5 1.0" />
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1.0" />
+  </material>
+
+  <material name="white_blue">
+    <color rgba="0.8 0.8 0.94 1" />
+  </material>
+</robot>

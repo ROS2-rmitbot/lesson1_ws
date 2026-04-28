@@ -1,2 +1,1 @@
-source;share/rmitbot_bringup/environment/ament_prefix_path.sh
-source;share/rmitbot_bringup/environment/path.sh
+/home/v120506/03-ROS2_Workspace/rmitbot_v5/lesson1_ws/build/rmitbot_bringup/ament_cmake_environment_hooks/local_setup.dsv
